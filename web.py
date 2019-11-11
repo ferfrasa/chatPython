@@ -15,7 +15,7 @@ import smtplib
 
 ORIGEN="localhost"
 USUARIO="root"
-CONTRASENA=""
+CONTRASENA="****"
 BASEDATOS="chat_python"
 objetoChat=""
 
@@ -27,7 +27,6 @@ app = Flask(__name__)
 
 @app.route("/")
 def hello():
- #return ("visita https://pythooneus.net!")
  objetoChat=consultarChat()
  print("valores")
 
@@ -40,8 +39,8 @@ def eviarCorreo():
     MSG=MIMEMultipart()
     mensaje=consultarChat()
     
-    password= "geral13way"
-    MSG['From']="ferfrasa13@gmail.com"
+    password= "*****"
+    MSG['From']="tucorreo@correo.com"
     MSG['To']=correoElectronico
     MSG['Subject']="Lista de Chat página Web"
     MSG.attach(MIMEText(str(mensaje),'plain'))
