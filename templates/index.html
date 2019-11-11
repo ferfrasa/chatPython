@@ -1,0 +1,111 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>Hello, world!</title>
+  </head>
+  <body>
+ 
+  <header><nav class="navbar navbar-expand-lg   navbar navbar-dark bg-primary" style="background-color: #e3f2fd;">
+  <a class="navbar-brand" href="#">Web Servidor</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Inicio <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Contacto</a>
+      </li>
+    </ul>
+  </div>
+  
+
+</nav>
+</header>
+	<div class="container">
+
+	
+  <!-- Content here --><br/>
+  
+  <div class="alert alert-primary" role="alert">
+ Bienvenido! Aqui puede consultar los chat de todos sus clientes y enviarlos al correo electronico que desee
+</div>
+
+
+
+<table class="table table-striped">
+
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">IP</th>
+      <th scope="col">Mensaje</th>
+      <th scope="col">Fecha</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for user in consulta %}
+    <tr>
+	
+	{%for i in range(0, 4)%} 
+  
+   
+
+      <th scope="row">{{user[i]}}</th>
+      
+	{% endfor %}
+    </tr>
+   {% endfor %}
+
+  </tbody>
+</table>
+
+<form action="/correo" method="get">
+<div class="row">
+
+<div class="input-group mb-3 col-6">
+  <input type="text" name="corre-e" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="button-addon2">
+  <div class="input-group-append">
+    <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Enviar correo</button>
+  </div>
+</div>
+
+</div>
+</form>
+
+{% if mensaje=='si' %}
+   <div class="alert alert-success" role="alert">
+     Correo enviado con exito
+   </div>
+ 
+{% elif mensaje=='no' %}
+  <div class="alert alert-danger" role="alert">
+   No hemos podido manda tu mensaje 
+  </div>
+{% else %}
+{% endif %}
+  
+  
+   
+
+</div>
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>
